@@ -6,12 +6,18 @@ const client = new Discord.Client();
 client.setMaxListeners(0);
 
 const commandList = new (require('./src/CommandContainer'));
+const cache = new (require('./src/Cache'));
 const dependencyGraph = {
     'discordClient': client,
     'commandPrefix': '!',
     'commandList': commandList,
-    'https': require('https')
+    'https': require('https'),
+    'Date': Date,
+    'JSON': JSON,
+    'Cache': cache
 };
+cache.initialize(dependencyGraph);
+
 for (let key in instantiateCommands) {
     if (!instantiateCommands.hasOwnProperty(key)) continue;
     let commandPath = './src/Command/' + instantiateCommands[key];

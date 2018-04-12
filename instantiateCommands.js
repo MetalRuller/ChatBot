@@ -18,5 +18,6 @@ module.exports = {
     'ts': 'TS',
     'vote': 'Vote',
     'why': 'Why',
-    'xp': 'XP'
+    'xp': 'XP',
+    'playercount': 'Playercount'
 };
